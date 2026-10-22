@@ -1,251 +1,311 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anna | IT Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna | IT Portfolio</title>
 
-    <style>
-        :root {
-            --bg: #faf9ff;
-            --primary: #7866d9;
-            --dark: #29263b;
-            --text: #626077;
-            --card: #ffffff;
-        }
+<style>
+:root {
+    --bg: #f8f7fc;
+    --white: #ffffff;
+    --primary: #7866d9;
+    --primary-light: #efebff;
+    --dark: #29263b;
+    --text: #77738c;
+    --border: #eeebf5;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: var(--bg);
-            color: var(--dark);
-            line-height: 1.6;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        header {
-            background: rgba(255,255,255,0.95);
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
-        }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+}
 
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--primary);
-        }
+/* БОКОВОЕ МЕНЮ */
 
-        nav a {
-            margin-left: 22px;
-            text-decoration: none;
-            color: var(--dark);
-            font-size: 14px;
-            transition: 0.3s;
-        }
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 245px;
+    height: 100vh;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
 
-        nav a:hover {
-            color: var(--primary);
-        }
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 40px;
+    padding-left: 12px;
+}
 
-        .hero {
-            text-align: center;
-            padding: 110px 20px 90px;
-            background: linear-gradient(135deg, #f4efff, #f0faff);
-        }
+.menu-title {
+    color: #aaa5bd;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0 12px;
+    margin-bottom: 15px;
+}
 
-        .hero h1 {
-            font-size: clamp(32px, 5vw, 52px);
-            margin-bottom: 15px;
-        }
+.sidebar a {
+    display: block;
+    padding: 13px 15px;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    transition: 0.25s;
+}
 
-        .hero h1 span {
-            color: var(--primary);
-        }
+.sidebar a:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
 
-        .hero p {
-            color: var(--text);
-            font-size: 18px;
-            max-width: 650px;
-            margin: 0 auto 30px;
-        }
+.sidebar a.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
+}
 
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 13px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-        }
+.sidebar-footer {
+    margin-top: auto;
+    padding: 20px 12px 0;
+    font-size: 12px;
+    color: #aaa5bd;
+}
 
-        .btn:hover {
-            background: #5e4bb8;
-            transform: translateY(-3px);
-        }
+/* ОСНОВНОЙ КОНТЕНТ */
 
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 75px 25px;
-        }
+.main {
+    margin-left: 245px;
+    padding: 35px 45px;
+    max-width: 1600px;
+}
 
-        h2 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
+.welcome {
+    background: linear-gradient(120deg, #eee9ff, #eaf7ff);
+    padding: 35px 40px;
+    border-radius: 22px;
+    margin-bottom: 35px;
+}
 
-        .subtitle {
-            text-align: center;
-            color: var(--text);
-            margin-bottom: 45px;
-        }
+.welcome h1 {
+    font-size: 32px;
+    margin: 0 0 10px;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
+.welcome h1 span {
+    color: var(--primary);
+}
 
-        .card {
-            background: var(--card);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(100,80,150,0.07);
-            transition: 0.3s;
-        }
+.welcome p {
+    color: var(--text);
+    max-width: 700px;
+    line-height: 1.7;
+    font-size: 15px;
+    margin: 0;
+}
 
-        .card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 15px 35px rgba(100,80,150,0.12);
-        }
+.section-title {
+    font-size: 22px;
+    margin: 35px 0 20px;
+}
 
-        .icon {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
 
-        .card h3 {
-            margin: 0 0 10px;
-        }
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 25px;
+    transition: 0.3s;
+}
 
-        .card p {
-            color: var(--text);
-            font-size: 15px;
-        }
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(100,80,150,0.09);
+}
 
-        .tag {
-            display: inline-block;
-            background: #eeeaff;
-            color: var(--primary);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            margin: 5px 5px 15px 0;
-        }
+.card-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
 
-        .card a {
-            display: inline-block;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 10px;
-        }
+.card h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
 
-        .card a:hover {
-            text-decoration: underline;
-        }
+.card p {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 45px;
+}
 
-        footer {
-            background: #29263b;
-            color: white;
-            text-align: center;
-            padding: 35px;
-        }
+.tag {
+    display: inline-block;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    margin: 5px 4px 10px 0;
+}
 
-        footer p {
-            opacity: 0.7;
-        }
+.card-link {
+    display: block;
+    margin-top: 12px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
 
-        @media (max-width: 650px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
+.card-link:hover {
+    text-decoration: underline;
+}
 
-            nav {
-                text-align: center;
-            }
+.about {
+    margin-top: 35px;
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+}
 
-            nav a {
-                display: inline-block;
-                margin: 5px 8px;
-            }
+.about p {
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 14px;
+}
 
-            .hero {
-                padding: 70px 20px;
-            }
-        }
-    </style>
+/* АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .logo {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .menu-title,
+    .sidebar-footer {
+        display: none;
+    }
+
+    .sidebar a {
+        padding: 9px 12px;
+        margin: 0;
+        font-size: 12px;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome {
+        padding: 25px;
+    }
+
+    .welcome h1 {
+        font-size: 26px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-<header>
+<!-- БОКОВОЕ МЕНЮ -->
+
+<aside class="sidebar">
+
     <div class="logo">Anna.dev ✨</div>
 
-    <nav>
-        <a href="#about">Обо мне</a>
-        <a href="#games">Игры</a>
-        <a href="#analytics">Аналитика</a>
-        <a href="#management">Проекты</a>
-        <a href="#bots">Боты</a>
-    </nav>
-</header>
+    <div class="menu-title">Навигация</div>
 
-<div class="hero">
-    <h1>Привет! Я <span>Анна</span> 👋</h1>
+    <a href="#home" class="active">🏠 Главная</a>
+    <a href="#games">🎮 Игры</a>
+    <a href="#analytics">📊 Аналитика</a>
+    <a href="#management">📋 Управление проектами</a>
+    <a href="#bots">🤖 Telegram-боты</a>
+    <a href="#about">🌸 Обо мне</a>
 
-    <p>
-        Добро пожаловать в моё IT-пространство!
-        Здесь я собираю свои проекты:
-        от разработки игр и Telegram-ботов
-        до аналитики данных и управления IT-проектами.
-    </p>
+    <div class="sidebar-footer">
+        Anna © 2026<br>
+        IT Portfolio
+    </div>
 
-    <a href="#games" class="btn">Посмотреть проекты ↓</a>
-</div>
+</aside>
 
-<section id="about">
-    <h2>Немного обо мне 🌸</h2>
+<!-- ОСНОВНАЯ СТРАНИЦА -->
 
-    <p class="subtitle">
-        Мне интересно создавать цифровые продукты,
-        исследовать данные и находить решения сложных задач.
-        Это пространство, где можно познакомиться
-        с моими практическими работами.
-    </p>
-</section>
+<main class="main">
 
-<section id="games">
-    <h2>🎮 Мои игры</h2>
-    <p class="subtitle">Небольшие игровые проекты, которые можно попробовать прямо в браузере.</p>
+    <div class="welcome" id="home">
 
-    <div class="grid">
+        <h1>Привет! Я <span>Анна</span> 👋</h1>
+
+        <p>
+            Добро пожаловать в моё IT-пространство!
+            Здесь я собираю свои проекты:
+            игры, аналитику данных,
+            решения для управления проектами
+            и Telegram-ботов.
+        </p>
+
+    </div>
+
+    <!-- ИГРЫ -->
+
+    <h2 class="section-title" id="games">🎮 Разработка игр</h2>
+
+    <div class="projects-grid">
 
         <div class="card">
-            <div class="icon">🦊</div>
+
+            <div class="card-icon">🦊</div>
+
             <h3>Лисёнок: приключение</h3>
 
             <p>
@@ -256,117 +316,146 @@
             <span class="tag">HTML</span>
             <span class="tag">JavaScript</span>
 
-            <br>
-            <a href="games/fox.html">Играть →</a>
+            <a href="game.html" class="card-link">
+                Играть →
+            </a>
+
         </div>
 
         <div class="card">
-            <div class="icon">🎯</div>
-            <h3>Моя вторая игра</h3>
+
+            <div class="card-icon">🌸</div>
+
+            <h3>Раскрась цветок</h3>
 
             <p>
-                Здесь скоро появится описание
-                второго игрового проекта.
+                Игра-пазл: раскрась лепестки в определенные цвета.
             </p>
 
             <span class="tag">Game Development</span>
 
-            <br>
-            <a href="games/game2.html">Играть →</a>
+            <a href="flower.html" class="card-link">
+                Играть →
+            </a>
+
         </div>
 
     </div>
-</section>
 
-<section id="analytics">
-    <h2>📊 Аналитика данных</h2>
-    <p class="subtitle">Исследования, визуализации и работа с данными.</p>
+    <!-- АНАЛИТИКА -->
 
-    <div class="grid">
+    <h2 class="section-title" id="analytics">📊 Аналитика</h2>
+
+    <div class="projects-grid">
+
         <div class="card">
-            <div class="icon">📈</div>
+
+            <div class="card-icon">📈</div>
+
             <h3>Аналитический проект</h3>
 
             <p>
-                Здесь будет представлен мой аналитический кейс:
-                постановка задачи, методы исследования,
-                визуализации и результаты.
+                Исследование данных,
+                визуализация результатов
+                и формирование выводов.
             </p>
 
             <span class="tag">Data Analytics</span>
 
-            <br>
-            <a href="#analytics">Скоро появится</a>
+            <span class="card-link">Скоро появится</span>
+
         </div>
+
     </div>
-</section>
 
-<section id="management">
-    <h2>📋 Управление проектами</h2>
-    <p class="subtitle">Планирование, оценка ресурсов и управление сроками.</p>
+    <!-- УПРАВЛЕНИЕ ПРОЕКТАМИ -->
 
-    <div class="grid">
+    <h2 class="section-title" id="management">
+        📋 Управление проектами
+    </h2>
+
+    <div class="projects-grid">
+
         <div class="card">
-            <div class="icon">🗂️</div>
+
+            <div class="card-icon">🗂️</div>
+
             <h3>Расчёт IT-проекта</h3>
 
             <p>
-                Практический кейс по оценке
-                бюджета, сроков и ресурсов проекта.
+                Оценка бюджета,
+                сроков и ресурсов проекта.
             </p>
 
             <span class="tag">Project Management</span>
-            <span class="tag">Planning</span>
 
-            <br>
-            <a href="#management">Скоро появится</a>
+            <span class="card-link">Скоро появится</span>
+
         </div>
+
     </div>
-</section>
 
-<section id="bots">
-    <h2>🤖 Telegram-боты</h2>
-    <p class="subtitle">Автоматизация и небольшие полезные сервисы.</p>
+    <!-- БОТЫ -->
 
-    <div class="grid">
+    <h2 class="section-title" id="bots">
+        🤖 Telegram-боты
+    </h2>
+
+    <div class="projects-grid">
 
         <div class="card">
-            <div class="icon">🤖</div>
+
+            <div class="card-icon">🤖</div>
+
             <h3>Telegram-бот №1</h3>
 
             <p>
-                Здесь будет описание первого бота
-                и ссылка для его запуска.
+                Первый проект автоматизации
+                с использованием Telegram.
             </p>
 
             <span class="tag">Telegram API</span>
 
-            <br>
-            <a href="#bots">Скоро появится</a>
+            <span class="card-link">Скоро появится</span>
+
         </div>
 
         <div class="card">
-            <div class="icon">💬</div>
+
+            <div class="card-icon">💬</div>
+
             <h3>Telegram-бот №2</h3>
 
             <p>
-                Здесь будет описание второго бота
-                и его возможностей.
+                Второй проект автоматизации
+                и взаимодействия с пользователями.
             </p>
 
             <span class="tag">Automation</span>
 
-            <br>
-            <a href="#bots">Скоро появится</a>
+            <span class="card-link">Скоро появится</span>
+
         </div>
 
     </div>
-</section>
 
-<footer>
-    <h3>Спасибо, что заглянули! 💜</h3>
-    <p>Anna © 2026 | IT Portfolio</p>
-</footer>
+    <!-- ОБО МНЕ -->
+
+    <div class="about" id="about">
+
+        <h2>🌸 Обо мне</h2>
+
+        <p>
+            Мне интересно создавать цифровые продукты,
+            исследовать данные и находить
+            решения практических задач.
+            Это портфолио объединяет мои проекты
+            в разных направлениях IT.
+        </p>
+
+    </div>
+
+</main>
 
 </body>
 </html>
