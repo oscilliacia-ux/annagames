@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кейс: день рождения «Кино 90-х» | Anna</title>
+<meta name="description" content="Кейс-стади: организация взрослого дня рождения на 30 гостей под ключ. Роль — менеджер проекта.">
+
+<style>
+:root {
+    --bg: #f8f7fc;
+    --white: #ffffff;
+    --primary: #7866d9;
+    --primary-light: #efebff;
+    --dark: #29263b;
+    --text: #77738c;
+    --border: #eeebf5;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* КНОПКА НАЗАД */
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 25px 0 0 45px;
+    padding: 9px 16px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.back:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+/* КОНТЕЙНЕР */
+
+.wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 45px 60px;
+}
+
+/* ШАПКА */
+
+.hero {
+    background: linear-gradient(120deg, #eee9ff, #eaf7ff);
+    padding: 35px 40px;
+    border-radius: 22px;
+    margin-bottom: 25px;
+}
+
+.hero .badge {
+    display: inline-block;
+    background: rgba(120, 102, 217, 0.15);
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    font-size: 30px;
+    margin: 0 0 12px;
+    line-height: 1.25;
+}
+
+.hero h1 span { color: var(--primary); }
+
+.hero p {
+    color: var(--text);
+    font-size: 15px;
+    margin: 0;
+    max-width: 720px;
+}
+
+/* КАРТОЧКА ПРОЕКТА */
+
+.card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 25px 30px;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card h2 .ico {
+    font-size: 22px;
+}
+
+.card p {
+    color: var(--text);
+    font-size: 14px;
+    margin: 0 0 12px;
+}
+
+.card ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.card ul li {
+    margin-bottom: 6px;
+}
+
+.card ul li strong {
+    color: var(--dark);
+}
+
+/* СЕТКА ФАКТОВ */
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.fact {
+    background: var(--primary-light);
+    border-radius: 14px;
+    padding: 14px 16px;
+}
+
+.fact .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.fact .value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* ТАБЛИЦЫ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+th {
+    text-align: left;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+th:first-child { border-radius: 10px 0 0 10px; }
+th:last-child { border-radius: 0 10px 10px 0; }
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+}
+
+td:first-child { color: var(--dark); }
+
+tr:last-child td { border-bottom: none; }
+
+td.num { text-align: right; white-space: nowrap; }
+
+.total td {
+    font-weight: 700;
+    color: var(--dark);
+    background: #faf9ff;
+}
+
+/* ДВЕ КОЛОНКИ ДЛЯ SCOPE */
+
+.scope {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.scope-box {
+    background: #faf9ff;
+    border-radius: 14px;
+    padding: 16px 18px;
+}
+
+.scope-box h3 {
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+
+.scope-box.in h3 { color: #27ae60; }
+.scope-box.out h3 { color: #e67e22; }
+
+.scope-box ul {
+    padding-left: 18px;
+    margin: 0;
+}
+
+/* ТАЙМЛАЙН */
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tl-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: #faf9ff;
+    border-radius: 12px;
+}
+
+.tl-week {
+    flex-shrink: 0;
+    background: var(--primary);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 8px;
+    min-width: 65px;
+    text-align: center;
+}
+
+.tl-text {
+    font-size: 14px;
+    color: var(--text);
+}
+
+.tl-text strong { color: var(--dark); }
+
+/* ТЕГИ */
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* РЕЗУЛЬТАТЫ */
+
+.result {
+    background: linear-gradient(120deg, #eaf7ff, #eee9ff);
+    border-radius: 18px;
+    padding: 25px 30px;
+}
+
+.result h2 {
+    font-size: 20px;
+    margin: 0 0 14px;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.result-item {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+
+.result-item .big {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.result-item .small {
+    font-size: 13px;
+    color: var(--text);
+}
+
+/* ПОДВАЛ */
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 13px;
+    color: #b8b3cc;
+}
+
+.footer a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* АДАПТИВ */
+
+@media (max-width: 800px) {
+    .back { margin: 20px 20px 0; }
+    .wrap { padding: 20px; }
+    .hero { padding: 25px; }
+    .hero h1 { font-size: 24px; }
+    .facts,
+    .scope,
+    .result-grid { grid-template-columns: 1fr; }
+    .card { padding: 20px; }
+    table { font-size: 13px; }
+    th, td { padding: 8px; }
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">← Назад в портфолио</a>
+
+<div class="wrap">
+
+    <!-- ШАПКА -->
+
+    <div class="hero">
+        <div class="badge">Кейс-стади · Project Management</div>
+        <h1>День рождения <span>«Кино 90-х»</span></h1>
+        <p>
+            Организация взрослого тематического дня рождения на 30 гостей
+            под ключ: концепция, бюджет, подрядчики, программа и координация
+            дня события. Учебный/концептуальный кейс для портфолио.
+        </p>
+        <div class="tags">
+            <span class="tag">Project Management</span>
+            <span class="tag">Budget &amp; Risk</span>
+            <span class="tag">Event Management</span>
+        </div>
+    </div>
+
+    <!-- КАРТОЧКА ПРОЕКТА -->
+
+    <div class="card">
+        <h2><span class="ico">📌</span> Карточка проекта</h2>
+        <div class="facts">
+            <div class="fact">
+                <div class="label">Роль</div>
+                <div class="value">Менеджер проекта</div>
+            </div>
+            <div class="fact">
+                <div class="label">Формат</div>
+                <div class="value">30 гостей, взрослые</div>
+            </div>
+            <div class="fact">
+                <div class="label">Тема</div>
+                <div class="value">Кино и музыка 90-х</div>
+            </div>
+            <div class="fact">
+                <div class="label">Срок подготовки</div>
+                <div class="value">6 недель</div>
+            </div>
+            <div class="fact">
+                <div class="label">Бюджет</div>
+                <div class="value">250 000 ₽</div>
+            </div>
+            <div class="fact">
+                <div class="label">Площадка</div>
+                <div class="value">Лофт в центре</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ЗАДАЧА -->
+
+    <div class="card">
+        <h2><span class="ico">🎯</span> Задача</h2>
+        <p>
+            Заказчик хотел отметить день рождения в стиле 90-х: атмосфера,
+            музыка, декор и программа, а не просто банкет. Ограничения:
+            6 недель на подготовку, бюджет 250 000 ₽, 30 гостей, лофт в центре города.
+        </p>
+        <p>
+            <strong>Моя задача как PM:</strong> собрать концепцию, смету,
+            подрядчиков и тайминг, провести событие без срывов и уложиться
+            в бюджет.
+        </p>
+    </div>
+
+    <!-- ЦЕЛИ -->
+
+    <div class="card">
+        <h2><span class="ico">✅</span> Цели и критерии успеха</h2>
+        <ul>
+            <li>Провести мероприятие в назначенную дату без переносов.</li>
+            <li>Уложиться в бюджет 250 000 ₽, резерв — не более 10%.</li>
+            <li>Закрыть договоры со всеми подрядчиками за 10 дней до события.</li>
+            <li>Программа — не менее 4 часов без «провисаний» между блоками.</li>
+            <li>Собрать обратную связь гостей и фотоотчёт.</li>
+        </ul>
+    </div>
+
+    <!-- SCOPE -->
+
+    <div class="card">
+        <h2><span class="ico">📦</span> Scope проекта</h2>
+        <div class="scope">
+            <div class="scope-box in">
+                <h3>✔ Входило</h3>
+                <ul>
+                    <li>Концепция и мудборд</li>
+                    <li>Подбор и бронирование площадки</li>
+                    <li>Смета и контроль бюджета</li>
+                    <li>Ведущий, DJ, фотограф, кейтеринг, декор</li>
+                    <li>Приглашения и сбор RSVP</li>
+                    <li>Программа и тайминг</li>
+                    <li>Монтаж, координация дня события, демонтаж</li>
+                </ul>
+            </div>
+            <div class="scope-box out">
+                <h3>✘ Не входило</h3>
+                <ul>
+                    <li>Трансфер гостей</li>
+                    <li>Проживание иногородних</li>
+                    <li>Видеосъёмка</li>
+                    <li>Индивидуальные подарки гостям</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- КОМАНДА -->
+
+    <div class="card">
+        <h2><span class="ico">👥</span> Команда и стейкхолдеры</h2>
+        <ul>
+            <li><strong>Заказчик</strong> — именинник и партнёр: утверждают концепцию, бюджет, список гостей.</li>
+            <li><strong>Гости</strong> — 30 человек, взрослые.</li>
+            <li><strong>Площадка</strong> — администратор лофта.</li>
+            <li><strong>Подрядчики</strong> — ведущий, DJ, фотограф, кейтеринг, декоратор.</li>
+            <li><strong>Команда проекта</strong> — PM (я), помощник, декоратор.</li>
+        </ul>
+        <p style="margin-top: 12px;">
+            <strong>Моя зона ответственности:</strong> бюджет, договоры, брифы,
+            тайминг, коммуникация, риск-менеджмент, контроль качества.
+        </p>
+    </div>
+
+    <!-- ПЛАН -->
+
+    <div class="card">
+        <h2><span class="ico">🗓️</span> План работ по неделям</h2>
+        <div class="timeline">
+            <div class="tl-item">
+                <div class="tl-week">Неделя 1</div>
+                <div class="tl-text"><strong>Бриф, концепция, смета, шорт-лист площадок.</strong> Утверждённая концепция и бюджет.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-week">Неделя 2</div>
+                <div class="tl-text"><strong>Договоры с площадкой, ведущим, фотографом; меню.</strong> Закрытые ключевые договоры.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-week">Неделя 3</div>
+                <div class="tl-text"><strong>Декор, реквизит, приглашения, рассылка.</strong> Приглашения отправлены, декор заказан.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-week">Неделя 4</div>
+                <div class="tl-text"><strong>Программа, тайминг, музыка, закупки.</strong> Готовый сценарий и тайминг.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-week">Неделя 5</div>
+                <div class="tl-text"><strong>RSVP, подтверждения подрядчиков, репетиция тайминга.</strong> Финальные списки и подтверждения.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-week">Неделя 6</div>
+                <div class="tl-text"><strong>Монтаж, событие, демонтаж, закрытие.</strong> Проведённое мероприятие и отчёт.</div>
+            </div>
+        </div>
+        <p style="margin-top: 16px; font-size: 13px;">
+            <strong>Критический путь:</strong> площадка → договоры с ведущим и кейтерингом → программа → монтаж.
+        </p>
+    </div>
+
+    <!-- БЮДЖЕТ -->
+
+    <div class="card">
+        <h2><span class="ico">💰</span> Бюджет</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Статья</th>
+                    <th style="text-align:right;">Сумма, ₽</th>
+                    <th style="text-align:right;">Доля</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Аренда лофта</td><td class="num">45 000</td><td class="num">18%</td></tr>
+                <tr><td>Кейтеринг (фуршет + торт)</td><td class="num">70 000</td><td class="num">28%</td></tr>
+                <tr><td>Декор и реквизит</td><td class="num">35 000</td><td class="num">14%</td></tr>
+                <tr><td>Ведущий</td><td class="num">30 000</td><td class="num">12%</td></tr>
+                <tr><td>DJ и звук</td><td class="num">20 000</td><td class="num">8%</td></tr>
+                <tr><td>Фотограф</td><td class="num">20 000</td><td class="num">8%</td></tr>
+                <tr><td>Приглашения и полиграфия</td><td class="num">5 000</td><td class="num">2%</td></tr>
+                <tr><td>Резерв (10%)</td><td class="num">25 000</td><td class="num">10%</td></tr>
+                <tr class="total"><td>Итого</td><td class="num">250 000</td><td class="num">100%</td></tr>
+            </tbody>
+        </table>
+        <p style="margin-top: 14px; font-size: 13px;">
+            Резерв 10% — обязательное условие: покрывает замену подрядчика,
+            дополнительные закупки декора и непредвиденные расходы.
+        </p>
+    </div>
+
+    <!-- РИСКИ -->
+
+    <div class="card">
+        <h2><span class="ico">⚠️</span> Риски и меры реагирования</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Риск</th>
+                    <th>Вероятность</th>
+                    <th>Влияние</th>
+                    <th>Мера</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Отмена или опоздание ведущего / DJ</td>
+                    <td>Средняя</td>
+                    <td>Высокое</td>
+                    <td>Договор, предоплата, резервный подрядчик</td>
+                </tr>
+                <tr>
+                    <td>Превышение бюджета</td>
+                    <td>Средняя</td>
+                    <td>Высокое</td>
+                    <td>Резерв 10%, еженедельный контроль сметы</td>
+                </tr>
+                <tr>
+                    <td>Площадка не соответствует фото</td>
+                    <td>Низкая</td>
+                    <td>Высокое</td>
+                    <td>Выезд на осмотр, видеообзор, фиксация в договоре</td>
+                </tr>
+                <tr>
+                    <td>Мало гостей пришло</td>
+                    <td>Средняя</td>
+                    <td>Среднее</td>
+                    <td>RSVP за 10 дней, напоминания</td>
+                </tr>
+                <tr>
+                    <td>Проблемы со звуком</td>
+                    <td>Средняя</td>
+                    <td>Среднее</td>
+                    <td>Тест оборудования, запасной комплект</td>
+                </tr>
+                <tr>
+                    <td>Сдвиг программы из-за опоздания гостей</td>
+                    <td>Высокая</td>
+                    <td>Низкое</td>
+                    <td>Буфер 15–20 минут в тайминге</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ПРОГРАММА -->
+
+    <div class="card">
+        <h2><span class="ico">🎬</span> Программа мероприятия (4 часа)</h2>
+        <ul>
+            <li>Сбор гостей, welcome-напитки, фотозона — 30 мин.</li>
+            <li>Приветствие и лёгкие игры — 30 мин.</li>
+            <li>Фуршет — 60 мин.</li>
+            <li>Квиз по фильмам и музыке 90-х — 40 мин.</li>
+            <li>Торт и поздравления — 20 мин.</li>
+            <li>Дискотека, фото, свободное общение — 60 мин.</li>
+            <li>Финал, обратная связь — 20 мин.</li>
+        </ul>
+    </div>
+
+    <!-- РЕЗУЛЬТАТ -->
+
+    <div class="result">
+        <h2>🏁 Результат</h2>
+        <div class="result-grid">
+            <div class="result-item">
+                <div class="big">В срок</div>
+                <div class="small">Событие проведено в назначенную дату</div>
+            </div>
+            <div class="result-item">
+                <div class="big">250 000 ₽</div>
+                <div class="small">Бюджет соблюдён, резерв использован частично</div>
+            </div>
+            <div class="result-item">
+                <div class="big">28 из 30</div>
+                <div class="small">Гостей пришли</div>
+            </div>
+            <div class="result-item">
+                <div class="big">100%</div>
+                <div class="small">Подрядчиков отработали вовремя</div>
+            </div>
+        </div>
+        <p style="margin-top: 16px; font-size: 13px; color: var(--text);">
+            По итогам — фотоотчёт, отзывы гостей и подтверждение заказчика
+            о готовности рекомендовать.
+        </p>
+    </div>
+
+    <!-- ВЫВОДЫ -->
+
+    <div class="card" style="margin-top: 20px;">
+        <h2><span class="ico">💡</span> Чему научилась</h2>
+        <ul>
+            <li>Резерв 10% — не формальность: он спасает при замене подрядчика и доп. закупках.</li>
+            <li>RSVP и напоминания за 10 и за 2 дня заметно повышают явку.</li>
+            <li>Буфер в тайминге важнее «идеального» сценария: гости всегда сдвигают программу.</li>
+            <li>Дублирование ключевых подрядчиков в шорт-листе снижает риск срыва.</li>
+        </ul>
+    </div>
+
+    <!-- ИНСТРУМЕНТЫ -->
+
+    <div class="card">
+        <h2><span class="ico">🛠️</span> Инструменты</h2>
+        <div class="tags">
+            <span class="tag">Google Sheets</span>
+            <span class="tag">Notion / Trello</span>
+            <span class="tag">Miro</span>
+            <span class="tag">Google Calendar</span>
+            <span class="tag">Canva</span>
+            <span class="tag">Telegram</span>
+        </div>
+        <p style="margin-top: 14px; font-size: 13px;">
+            Google Sheets — смета и чек-листы; Notion/Trello — канбан задач;
+            Miro — мудборд и тайминг; Google Calendar — вехи;
+            Canva — приглашения; Telegram — коммуникация с подрядчиками.
+        </p>
+    </div>
+
+    <!-- ПОДВАЛ -->
+
+    <div class="footer">
+        <p>
+            <a href="index.html">← Вернуться к проектам</a>
+            &nbsp;·&nbsp;
+            <a href="https://t.me/oscilliacia" target="_blank" rel="noopener">@oscilliacia</a>
+        </p>
+        <p>Anna © 2026 · IT Portfolio</p>
+    </div>
+
+</div>
+
+</body>
+</html>
